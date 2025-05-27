@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>personal information</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #ffeef8;
+      color: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .popup-overlay {
+      background-color: #fff0f5;
+      padding: 20px;
+      border: 3px dashed #ff69b4;
+      border-radius: 15px;
+      width: 400px;
+      box-shadow: 0 0 20px #ffa6c9;
+    }
+
+    header h2, header p, header h3 {
+      margin-bottom: 10px;
+      align-self: auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form p {
+      margin: 10px 0;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      background-color: #fff8fc;
+      color: #333;
+      border: 1px solid #ffb6c1;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff85c1;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup-overlay" id="formPopup">
+    <main class="popup-form">
+      <header>
+        <h2>Personal Information</h2>
+        <p>STEP 2 OF 4</p>
+        <h3>Mailing Address</h3>
+      </header>
+
+      <form onsubmit="return submitForm();">
+        <p>Name<br />
+          <input type="text" id="name" placeholder="John Doe" />
+        </p>
+        <p>Street Address<br />
+          <input type="text" id="street" placeholder="123 Main Street" />
+        </p>
+        <p>Apartment<br />
+          <input type="text" id="apartment" placeholder="Apt 1A" />
+        </p>
+        <p>City<br />
+          <input type="text" id="city" placeholder="Hometown" />
+        </p>
+        <p>Postal Code<br />
+          <input type="text" id="postal" placeholder="12345" />
+        </p>
+        <p>Delivery Instruction<br />
+          <textarea id="instructions" placeholder="Leave at front door."></textarea>
+        </p>
+        <p>
+          <button type="submit">Next</button>
+        </p>
+      </form>
+    </main>
+  </div>
+
+  <script>
+    function submitForm() {
+      const name = document.getElementById("name").value;
+      const street = document.getElementById("street").value;
+      const city = document.getElementById("city").value;
+      const postal = document.getElementById("postal").value;
+
+      if (!name || !street || !city || !postal) {
+        alert("Hey cutie! Don't forget to fill out all the required fields!!!!!");
+        return false;
+      }
+
+      alert("submitted");
+      document.getElementById("formPopup").style.display = "none";
+      return false;
+    }
+  </script>
+</body>
+</html>
+
+
